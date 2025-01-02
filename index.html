@@ -57,64 +57,66 @@
         button:hover {
             background-color: #ff4500; /* Màu cam đậm */
         }
+        .quote {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #ffff00; /* Màu vàng */
+            text-shadow: 1px 1px 2px #000059;
+            margin-bottom: 20px;
+        }
     </style>
     <script>
         function randomWish() {
+            const sunflowerMessages = [
+                "Bạn là một đóa hoa hướng dương, luôn hướng về ánh sáng và tỏa rạng vẻ đẹp riêng của mình!",
+                "Bạn như một đóa hoa hướng dương, luôn nở rộ trong ánh sáng và niềm vui của cuộc sống!",
+                "Bạn là một đóa hoa hướng dương, luôn đứng vững trước mọi thử thách và tỏa sáng mạnh mẽ!",
+                "Bạn giống như hoa hướng dương, luôn tìm ra con đường đúng đắn trong cuộc sống!",
+                "Bạn là một đóa hoa hướng dương, luôn mang lại niềm vui và năng lượng tích cực cho mọi người!",
+                "Cũng như hoa hướng dương, bạn luôn tìm ánh sáng dù trong bóng tối!",
+                "Bạn là một đóa hoa hướng dương, luôn lạc quan và tỏa sáng trong mọi tình huống!",
+                "Mỗi ngày bạn như một đóa hoa hướng dương, nở rộ trong tình yêu thương và sự tươi mới!",
+                "Giống như hoa hướng dương, bạn luôn mang lại niềm vui và sự sống động cho mọi không gian!",
+                "Bạn là một đóa hoa hướng dương, tỏa sáng và luôn tìm kiếm những điều tốt đẹp phía trước!",
+                "Bạn là một đóa hoa hướng dương, luôn mạnh mẽ và kiên cường dù trong khó khăn!",
+                "Giống như hoa hướng dương, bạn luôn tìm thấy ánh sáng trong những thời khắc tối tăm nhất!",
+                "Bạn là một đóa hoa hướng dương, luôn sống động và truyền cảm hứng cho những người xung quanh!",
+                "Mỗi bước đi của bạn đều giống như những cánh hoa hướng dương vươn ra ánh mặt trời!",
+                "Bạn là một đóa hoa hướng dương, luôn mang lại sự ấm áp và yêu thương cho những người xung quanh!",
+                "Giống như hoa hướng dương, bạn luôn biết cách xoay mình để đón nhận những cơ hội mới!",
+                "Bạn là một đóa hoa hướng dương, luôn hướng về phía trước với niềm tin vững chắc vào tương lai!",
+                "Bạn giống như hoa hướng dương, luôn tìm thấy lý do để cười và mang lại hạnh phúc cho mọi người!",
+                "Bạn là một đóa hoa hướng dương, luôn nở rộ và lan tỏa năng lượng tích cực đến mọi nơi!",
+                "Giống như hoa hướng dương, bạn luôn mang lại hy vọng và sức sống cho mọi người xung quanh!"
+            ];
+
             const wishes = [
                 "Chúc bạn luôn tràn đầy năng lượng, tự tin và đạt được những mục tiêu mà bạn đặt ra!",
-    "Hãy sống hạnh phúc từng ngày, mỗi khoảnh khắc đều là món quà đáng trân trọng!",
-    "Chúc bạn một ngày ngập tràn yêu thương và những điều tốt đẹp bất ngờ!",
-    "Chúc bạn luôn gặt hái được nhiều thành công và nhận về thật nhiều niềm vui!",
-    "Hãy tin rằng những điều tốt đẹp nhất đang đến và chờ đợi bạn ở phía trước!",
-    "Một ngày mới đã bắt đầu, hãy sống trọn vẹn và lan tỏa nụ cười của bạn!",
-    "Chúc bạn luôn giữ vững nụ cười trên môi và niềm tin trong trái tim!",
-    "Mỗi bước đi của bạn hôm nay sẽ đưa bạn đến gần hơn với ước mơ của mình!",
-    "Chúc bạn luôn mạnh mẽ vượt qua mọi thử thách và chạm đến thành công lớn!",
-    "Hãy tận hưởng từng giây phút hiện tại và biến nó thành kỷ niệm đáng nhớ!",
-    "Chúc bạn luôn dồi dào sức khỏe, bình an và nhiều cơ hội trong cuộc sống!",
-    "Mỗi ngày là một khởi đầu mới, hãy biến ngày hôm nay thành một ngày tuyệt vời!",
-    "Chúc bạn tìm thấy niềm vui trong những điều nhỏ bé nhất xung quanh mình!",
-    "Hạnh phúc luôn ở trong tầm tay bạn, chỉ cần bạn sẵn sàng đón nhận nó!",
-    "Chúc bạn luôn được yêu thương và cảm nhận trọn vẹn sự ấm áp từ những người xung quanh!",
-    "Hãy sống hết mình với đam mê và niềm tin rằng bạn có thể làm được mọi thứ!",
-    "Chúc bạn luôn cảm thấy tự hào về chính mình và không ngừng cố gắng vì tương lai!",
-    "Hãy để ánh sáng tích cực lan tỏa từ bạn, giúp cuộc sống này thêm tươi đẹp!",
-    "Chúc bạn luôn kiên trì với ước mơ của mình và đón nhận mọi điều may mắn!",
-    "Một ngày mới đang chờ đón bạn, hãy mở lòng để cảm nhận thật nhiều yêu thương và bình an!",
-    "Hãy luôn giữ trái tim đầy hy vọng và tinh thần lạc quan!",
-    "Chúc bạn luôn được bao bọc bởi sự yêu thương và hạnh phúc!",
-    "Hãy tin tưởng vào khả năng của bản thân và bước về phía trước!",
-    "Chúc bạn có thật nhiều sức khỏe và niềm vui trong cuộc sống!",
-    "Hãy biết ơn mỗi khoảnh khắc hiện tại vì nó là điều quý giá nhất!",
-    "Chúc bạn luôn là nguồn cảm hứng tích cực cho mọi người xung quanh!",
-    "Hãy để mỗi ngày trôi qua đều là một bước tiến tới ước mơ của bạn!",
-    "Chúc bạn tìm thấy ý nghĩa và niềm vui trong từng khoảnh khắc!",
-    "Hãy tin rằng mọi khó khăn đều sẽ qua và hạnh phúc sẽ đến!",
-    "Chúc bạn luôn tự tin và mạnh mẽ trên con đường bạn chọn!",
-    "Hãy lan tỏa yêu thương và đón nhận yêu thương từ cuộc sống!",
-    "Chúc bạn luôn hạnh phúc và giữ được trái tim nhân ái!",
-    "Hãy để những điều tốt đẹp dẫn lối cho bạn trên mọi nẻo đường!",
-    "Chúc bạn luôn biết cách trân trọng và tận hưởng những niềm vui nhỏ bé!",
-    "Hãy tự hào về chính mình và những gì bạn đã đạt được!",
-    "Chúc bạn luôn bình an và tìm thấy niềm vui trong công việc cũng như cuộc sống!",
-    "Hãy luôn mỉm cười, vì đó là chìa khóa của hạnh phúc!",
-    "Chúc bạn luôn được che chở bởi sự ấm áp của gia đình và bạn bè!",
-    "Hãy sống chậm lại để cảm nhận hết những điều kỳ diệu của cuộc sống!",
-    "Chúc bạn gặt hái thật nhiều thành quả trong mọi lĩnh vực bạn theo đuổi!",
-    "Hãy tin tưởng rằng bạn luôn xứng đáng với những điều tốt đẹp nhất!",
-    "Chúc bạn luôn có đủ niềm tin và nghị lực để vượt qua mọi thử thách!",
-    "Hãy để sự tích cực trở thành kim chỉ nam cho mọi hành động của bạn!",
-    "Chúc bạn có một cuộc sống viên mãn với những điều bạn yêu thương!",
-    "Hãy giữ lửa nhiệt huyết và tận hưởng từng giây phút trong cuộc đời này!",
-    "Chúc bạn luôn trọn vẹn trong tình yêu, công việc và đam mê!",
-    "Hãy biến mỗi ngày trở thành cơ hội để học hỏi và phát triển bản thân!",
-    "Chúc bạn luôn gặp may mắn và đón nhận thật nhiều cơ hội tốt!",
-    "Hãy luôn giữ vững niềm tin rằng bạn có thể làm được mọi thứ!",
-    "Chúc bạn luôn bình tĩnh trước mọi sóng gió và mạnh mẽ vượt qua chúng!",
-    "Hãy để tình yêu và lòng biết ơn làm bạn sáng bừng mỗi ngày!"
+                "Hãy sống hạnh phúc từng ngày, mỗi khoảnh khắc đều là món quà đáng trân trọng!",
+                "Chúc bạn một ngày ngập tràn yêu thương và những điều tốt đẹp bất ngờ!",
+                "Chúc bạn luôn gặt hái được nhiều thành công và nhận về thật nhiều niềm vui!",
+                "Hãy tin rằng những điều tốt đẹp nhất đang đến và chờ đợi bạn ở phía trước!",
+                "Một ngày mới đã bắt đầu, hãy sống trọn vẹn và lan tỏa nụ cười của bạn!",
+                "Chúc bạn luôn giữ vững nụ cười trên môi và niềm tin trong trái tim!",
+                "Mỗi bước đi của bạn hôm nay sẽ đưa bạn đến gần hơn với ước mơ của mình!",
+                "Chúc bạn luôn mạnh mẽ vượt qua mọi thử thách và chạm đến thành công lớn!",
+                "Hãy tận hưởng từng giây phút hiện tại và biến nó thành kỷ niệm đáng nhớ!",
+                "Chúc bạn luôn dồi dào sức khỏe, bình an và nhiều cơ hội trong cuộc sống!",
+                "Mỗi ngày là một khởi đầu mới, hãy biến ngày hôm nay thành một ngày tuyệt vời!",
+                "Chúc bạn tìm thấy niềm vui trong những điều nhỏ bé nhất xung quanh mình!",
+                "Hạnh phúc luôn ở trong tầm tay bạn, chỉ cần bạn sẵn sàng đón nhận nó!",
+                "Chúc bạn luôn được yêu thương và cảm nhận trọn vẹn sự ấm áp từ những người xung quanh!",
+                "Hãy sống hết mình với đam mê và niềm tin rằng bạn có thể làm được mọi thứ!",
+                "Chúc bạn luôn cảm thấy tự hào về chính mình và không ngừng cố gắng vì tương lai!",
+                "Hãy để ánh sáng tích cực lan tỏa từ bạn, giúp cuộc sống này thêm tươi đẹp!",
+                "Chúc bạn luôn kiên trì với ước mơ của mình và đón nhận mọi điều may mắn!",
+                "Một ngày mới đang chờ đón bạn, hãy mở lòng để cảm nhận thật nhiều yêu thương và bình an!",
+                "Hãy luôn giữ trái tim đầy hy vọng và tinh thần lạc quan!"
             ];
-            const randomIndex = Math.floor(Math.random() * wishes.length);
-            document.getElementById("wish").innerText = wishes[randomIndex];
+            
+            const allMessages = sunflowerMessages.concat(wishes);
+            const randomIndex = Math.floor(Math.random() * allMessages.length);
+            document.getElementById("wish").innerText = allMessages[randomIndex];
         }
 
         function randomBackground() {
@@ -143,5 +145,6 @@
 <body>
     <h1>Kỉ niệm FYT 25 năm</h1>
     <p id="wish"></p>
+    <button onclick="randomWish()">Nhận lời chúc khác</button>
 </body>
 </html>
