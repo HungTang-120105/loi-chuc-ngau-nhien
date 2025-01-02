@@ -65,6 +65,25 @@
         button:hover {
             background-color: #ff4500;
         }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            width: 250px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #winnerList {
+            font-size: 1.5em;
+            color: #ff6347;
+            margin-top: 30px;
+        }
+        #winnerCount {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff6347;
+            margin-top: 10px;
+        }
     </style>
     <script>
         const sunflowerMessages = [
@@ -83,18 +102,7 @@
             "Hãy tin rằng những điều tốt đẹp nhất đang đến và chờ đợi bạn ở phía trước!"
         ];
 
-        const users = [
-            'user1', 'user2', 'user3', 'user4', 'user5', 'user6', 'user7', 'user8', 'user9', 'user10',
-            'user11', 'user12', 'user13', 'user14', 'user15', 'user16', 'user17', 'user18', 'user19', 'user20',
-            'user21', 'user22', 'user23', 'user24', 'user25', 'user26', 'user27', 'user28', 'user29', 'user30',
-            'user31', 'user32', 'user33', 'user34', 'user35', 'user36', 'user37', 'user38', 'user39', 'user40',
-            'user41', 'user42', 'user43', 'user44', 'user45', 'user46', 'user47', 'user48', 'user49', 'user50',
-            'user51', 'user52', 'user53', 'user54', 'user55', 'user56', 'user57', 'user58', 'user59', 'user60',
-            'user61', 'user62', 'user63', 'user64', 'user65', 'user66', 'user67', 'user68', 'user69', 'user70',
-            'user71', 'user72', 'user73', 'user74', 'user75', 'user76', 'user77', 'user78', 'user79', 'user80',
-            'user81', 'user82', 'user83', 'user84', 'user85', 'user86', 'user87', 'user88', 'user89', 'user90',
-            'user91', 'user92', 'user93', 'user94', 'user95', 'user96', 'user97', 'user98', 'user99', 'user100'
-        ];
+        let winners = []; // Mảng lưu danh sách người trúng thưởng
 
         function randomWish() {
             const randomWishIndex = Math.floor(Math.random() * wishes.length);
@@ -117,22 +125,38 @@
         }
 
         function blindBox() {
+            const username = document.getElementById("username").value.trim();
+
+            if (username === "") {
+                alert("Vui lòng nhập tên của bạn!");
+                return;
+            }
+
             randomWish();
             randomBackground();
             
-            // Giả sử người dùng đăng nhập với tên 'user1'
-            const loggedUser = 'user1';
             const randomNumber = Math.floor(Math.random() * 100) + 1; // Ngẫu nhiên số từ 1 đến 100
 
             let prizeMessage = "Chúc mừng bạn đã tham gia!";
             if (randomNumber <= 20) { // Tối đa 20 người trúng thưởng
-                prizeMessage = "Chúc mừng bạn trúng thưởng!";
+                prizeMessage = `Chúc mừng bạn, ${username}! Bạn đã trúng thưởng!`;
+                winners.push(username); // Lưu tên người trúng thưởng vào mảng
             } else {
-                prizeMessage = "Rất tiếc, bạn chưa trúng thưởng lần này.";
+                prizeMessage = `Rất tiếc, ${username}, bạn chưa trúng thưởng lần này.`;
             }
 
-            // Cập nhật thông báo trúng thưởng
             document.getElementById("result").innerText = prizeMessage;
+
+            // Cập nhật danh sách người trúng thưởng và số lượng
+            updateWinnerList();
+        }
+
+        function updateWinnerList() {
+            const winnerListElement = document.getElementById("winnerList");
+            const winnerCountElement = document.getElementById("winnerCount");
+
+            winnerListElement.innerHTML = "Danh sách người trúng thưởng: " + winners.join(", ");
+            winnerCountElement.innerHTML = "Số người trúng thưởng: " + winners.length;
         }
 
         window.onload = function() {
@@ -142,11 +166,19 @@
 </head>
 <body>
     <h1>Kỉ niệm FYT 25 năm</h1>
+    
+    <label for="username" style="font-size: 1.2em; color: #ff6347;">Nhập tên của bạn:</label>
+    <input type="text" id="username" placeholder="Tên của bạn...">
+    
     <p id="wish"></p>
     <p id="sunflowerMessage"></p>
     <p id="result"></p> <!-- Thông báo kết quả trúng thưởng -->
+    
     <div class="button-container">
         <button onclick="blindBox()">Mở Blind Box</button>
     </div>
+
+    <div id="winnerList"></div> <!-- Danh sách người trúng thưởng -->
+    <div id="winnerCount"></div> <!-- Số lượng người trúng thưởng -->
 </body>
 </html>
