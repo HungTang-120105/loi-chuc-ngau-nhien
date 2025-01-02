@@ -19,81 +19,84 @@
         h1 {
             margin-top: 20px;
             font-size: 3em;
-            color: #ff4500; /* Màu cam đậm */
+            color: #ff4500;
             text-shadow: 2px 2px 4px #ffffff;
             font-family: 'Lobster', cursive;
         }
         #wish {
             font-size: 2em;
-            color: #ff6347; /* Màu đỏ cà chua */
+            color: #ff6347;
             text-shadow: 1px 1px 2px #000059;
             position: absolute;
-            bottom: 15px; /* Điều chỉnh khoảng cách từ dưới lên */
+            bottom: 50px;
             width: 100%;
-            font-family: 'Roboto', sans-serif;
         }
         #sunflowerMessage {
             font-size: 1.5em;
             font-style: italic;
-            color: #ffff00; /* Màu vàng */
+            color: #ffff00;
             text-shadow: 1px 1px 2px #000059;
-            bottom: 25px;
+            bottom: 40px;
         }
-        .fyt {
-            font-size: 2em;
+        #result {
+            font-size: 1.8em;
             font-weight: bold;
-            color: #ff4500; /* Màu cam đậm */
+            color: #ff6347;
+            text-shadow: 1px 1px 2px #000059;
+            bottom: 20px;
+        }
+        .button-container {
             position: absolute;
-            bottom: 20px; /* Điều chỉnh khoảng cách từ dưới lên */
+            bottom: 120px;
             width: 100%;
             text-align: center;
-            font-family: 'Lobster', cursive;
         }
         button {
             padding: 10px 20px;
-            font-size: 1em;
+            font-size: 1.2em;
             margin-top: 20px;
             cursor: pointer;
             border: none;
-            background-color: #ff6347; /* Màu đỏ cà chua */
+            background-color: #ff6347;
             color: white;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-family: 'Roboto', sans-serif;
         }
         button:hover {
-            background-color: #ff4500; /* Màu cam đậm */
+            background-color: #ff4500;
         }
     </style>
     <script>
+        const sunflowerMessages = [
+            "Bạn là một đóa hoa hướng dương, luôn hướng về ánh sáng và tỏa rạng vẻ đẹp riêng của mình!",
+            "Bạn như một đóa hoa hướng dương, luôn nở rộ trong ánh sáng và niềm vui của cuộc sống!",
+            "Bạn là một đóa hoa hướng dương, luôn đứng vững trước mọi thử thách và tỏa sáng mạnh mẽ!",
+            "Bạn giống như hoa hướng dương, luôn tìm ra con đường đúng đắn trong cuộc sống!",
+            "Bạn là một đóa hoa hướng dương, luôn mang lại niềm vui và năng lượng tích cực cho mọi người!"
+        ];
+
+        const wishes = [
+            "Chúc bạn luôn tràn đầy năng lượng, tự tin và đạt được những mục tiêu mà bạn đặt ra!",
+            "Hãy sống hạnh phúc từng ngày, mỗi khoảnh khắc đều là món quà đáng trân trọng!",
+            "Chúc bạn một ngày ngập tràn yêu thương và những điều tốt đẹp bất ngờ!",
+            "Chúc bạn luôn gặt hái được nhiều thành công và nhận về thật nhiều niềm vui!",
+            "Hãy tin rằng những điều tốt đẹp nhất đang đến và chờ đợi bạn ở phía trước!"
+        ];
+
+        const users = [
+            'user1', 'user2', 'user3', 'user4', 'user5', 'user6', 'user7', 'user8', 'user9', 'user10',
+            'user11', 'user12', 'user13', 'user14', 'user15', 'user16', 'user17', 'user18', 'user19', 'user20',
+            'user21', 'user22', 'user23', 'user24', 'user25', 'user26', 'user27', 'user28', 'user29', 'user30',
+            'user31', 'user32', 'user33', 'user34', 'user35', 'user36', 'user37', 'user38', 'user39', 'user40',
+            'user41', 'user42', 'user43', 'user44', 'user45', 'user46', 'user47', 'user48', 'user49', 'user50',
+            'user51', 'user52', 'user53', 'user54', 'user55', 'user56', 'user57', 'user58', 'user59', 'user60',
+            'user61', 'user62', 'user63', 'user64', 'user65', 'user66', 'user67', 'user68', 'user69', 'user70',
+            'user71', 'user72', 'user73', 'user74', 'user75', 'user76', 'user77', 'user78', 'user79', 'user80',
+            'user81', 'user82', 'user83', 'user84', 'user85', 'user86', 'user87', 'user88', 'user89', 'user90',
+            'user91', 'user92', 'user93', 'user94', 'user95', 'user96', 'user97', 'user98', 'user99', 'user100'
+        ];
+
         function randomWish() {
-            const sunflowerMessages = [
-                "Bạn là một đóa hoa hướng dương, luôn hướng về ánh sáng và tỏa rạng vẻ đẹp riêng của mình!",
-                "Bạn như một đóa hoa hướng dương, luôn nở rộ trong ánh sáng và niềm vui của cuộc sống!",
-                "Bạn là một đóa hoa hướng dương, luôn đứng vững trước mọi thử thách và tỏa sáng mạnh mẽ!",
-                "Bạn giống như hoa hướng dương, luôn tìm ra con đường đúng đắn trong cuộc sống!",
-                "Bạn là một đóa hoa hướng dương, luôn mang lại niềm vui và năng lượng tích cực cho mọi người!",
-                "Cũng như hoa hướng dương, bạn luôn tìm ánh sáng dù trong bóng tối!",
-                "Bạn là một đóa hoa hướng dương, luôn lạc quan và tỏa sáng trong mọi tình huống!",
-                "Mỗi ngày bạn như một đóa hoa hướng dương, nở rộ trong tình yêu thương và sự tươi mới!",
-                "Giống như hoa hướng dương, bạn luôn mang lại niềm vui và sự sống động cho mọi không gian!",
-                "Bạn là một đóa hoa hướng dương, tỏa sáng và luôn tìm kiếm những điều tốt đẹp phía trước!"
-            ];
-
-            const wishes = [
-                "Chúc bạn luôn tràn đầy năng lượng, tự tin và đạt được những mục tiêu mà bạn đặt ra!",
-                "Hãy sống hạnh phúc từng ngày, mỗi khoảnh khắc đều là món quà đáng trân trọng!",
-                "Chúc bạn một ngày ngập tràn yêu thương và những điều tốt đẹp bất ngờ!",
-                "Chúc bạn luôn gặt hái được nhiều thành công và nhận về thật nhiều niềm vui!",
-                "Hãy tin rằng những điều tốt đẹp nhất đang đến và chờ đợi bạn ở phía trước!",
-                "Một ngày mới đã bắt đầu, hãy sống trọn vẹn và lan tỏa nụ cười của bạn!",
-                "Chúc bạn luôn giữ vững nụ cười trên môi và niềm tin trong trái tim!",
-                "Mỗi bước đi của bạn hôm nay sẽ đưa bạn đến gần hơn với ước mơ của mình!",
-                "Chúc bạn luôn mạnh mẽ vượt qua mọi thử thách và chạm đến thành công lớn!",
-                "Hãy tận hưởng từng giây phút hiện tại và biến nó thành kỷ niệm đáng nhớ!"
-            ];
-
-            // Chọn ngẫu nhiên một lời chúc và một thông điệp hoa hướng dương
             const randomWishIndex = Math.floor(Math.random() * wishes.length);
             const randomSunflowerIndex = Math.floor(Math.random() * sunflowerMessages.length);
 
@@ -107,27 +110,43 @@
                 'anh-hoa-huong-duong-2.jpg',
                 'anh-hoa-huong-duong-3.jpg',
                 'anh-hoa-huong-duong-4.jpg',
-                'anh-hoa-huong-duong-5.jpg',
-                'anh-hoa-huong-duong-6.jpg',
-                'anh-hoa-huong-duong-7.jpg',
-                'anh-hoa-huong-duong-8.jpg',
-                'anh-hoa-huong-duong-9.jpg',
-                'anh-hoa-huong-duong-10.jpg'
+                'anh-hoa-huong-duong-5.jpg'
             ];
             const randomIndex = Math.floor(Math.random() * backgrounds.length);
             document.body.style.backgroundImage = `url('${backgrounds[randomIndex]}')`;
         }
 
-        window.onload = function() {
+        function blindBox() {
             randomWish();
+            randomBackground();
+            
+            // Giả sử người dùng đăng nhập với tên 'user1'
+            const loggedUser = 'user1';
+            const randomNumber = Math.floor(Math.random() * 100) + 1; // Ngẫu nhiên số từ 1 đến 100
+
+            let prizeMessage = "Chúc mừng bạn đã tham gia!";
+            if (randomNumber <= 20) { // Tối đa 20 người trúng thưởng
+                prizeMessage = "Chúc mừng bạn trúng thưởng!";
+            } else {
+                prizeMessage = "Rất tiếc, bạn chưa trúng thưởng lần này.";
+            }
+
+            // Cập nhật thông báo trúng thưởng
+            document.getElementById("result").innerText = prizeMessage;
+        }
+
+        window.onload = function() {
             randomBackground();
         }
     </script>
 </head>
 <body>
     <h1>Kỉ niệm FYT 25 năm</h1>
-    <p id="wish"></p> <!-- Lời chúc ngẫu nhiên -->
-    <p id="sunflowerMessage"></p> <!-- Thông điệp hoa hướng dương -->
-   
+    <p id="wish"></p>
+    <p id="sunflowerMessage"></p>
+    <p id="result"></p> <!-- Thông báo kết quả trúng thưởng -->
+    <div class="button-container">
+        <button onclick="blindBox()">Mở Blind Box</button>
+    </div>
 </body>
 </html>
