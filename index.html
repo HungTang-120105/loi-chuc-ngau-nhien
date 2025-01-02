@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời chúc ngẫu nhiên</title>
+    <script>
+        function randomWish() {
+            const wishes = [
+                "Chúc bạn luôn vui vẻ và thành công!",
+                "Hãy mỉm cười, vì những điều tốt đẹp đang chờ bạn phía trước!",
+                "Một ngày tràn đầy năng lượng và hạnh phúc đang đón chào bạn!",
+                "Chúc bạn gặt hái nhiều thành công trong cuộc sống!",
+                "Hãy tận hưởng những điều tuyệt vời của ngày hôm nay!"
+            ];
+            const randomIndex = Math.floor(Math.random() * wishes.length);
+            document.getElementById("wish").innerText = wishes[randomIndex];
+        }
+    </script>
+</head>
+<body onload="randomWish()">
+    <h1>Lời chúc ngẫu nhiên dành cho bạn!</h1>
+    <p id="wish"></p>
+    <button onclick="randomWish()">Nhận lời chúc khác</button>
+</body>
+</html>
