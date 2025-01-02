@@ -26,7 +26,7 @@
             color: #ff6347; /* Màu đỏ cà chua */
             text-shadow: 1px 1px 2px #000059;
             position: absolute;
-            bottom: 100px; /* Điều chỉnh khoảng cách từ dưới lên */
+            bottom: 30px; /* Điều chỉnh khoảng cách từ dưới lên */
             width: 100%;    
         }
         .fyt {
@@ -56,11 +56,26 @@
     <script>
         function randomWish() {
             const wishes = [
-                "Chúc bạn luôn vui vẻ và thành công!",
-                "Hãy mỉm cười, vì những điều tốt đẹp đang chờ bạn phía trước!",
-                "Một ngày tràn đầy năng lượng và hạnh phúc đang đón chào bạn!",
-                "Chúc bạn gặt hái nhiều thành công trong cuộc sống!",
-                "Hãy tận hưởng những điều tuyệt vời của ngày hôm nay!"
+            "Chúc bạn luôn tràn đầy năng lượng, tự tin và đạt được những mục tiêu mà bạn đặt ra!",
+                "Hãy sống hạnh phúc từng ngày, mỗi khoảnh khắc đều là món quà đáng trân trọng!",
+                "Chúc bạn một ngày ngập tràn yêu thương và những điều tốt đẹp bất ngờ!",
+                "Chúc bạn luôn gặt hái được nhiều thành công và nhận về thật nhiều niềm vui!",
+                "Hãy tin rằng những điều tốt đẹp nhất đang đến và chờ đợi bạn ở phía trước!",
+                "Một ngày mới đã bắt đầu, hãy sống trọn vẹn và lan tỏa nụ cười của bạn!",
+                "Chúc bạn luôn giữ vững nụ cười trên môi và niềm tin trong trái tim!",
+                "Mỗi bước đi của bạn hôm nay sẽ đưa bạn đến gần hơn với ước mơ của mình!",
+                "Chúc bạn luôn mạnh mẽ vượt qua mọi thử thách và chạm đến thành công lớn!",
+                "Hãy tận hưởng từng giây phút hiện tại và biến nó thành kỷ niệm đáng nhớ!",
+                "Chúc bạn luôn dồi dào sức khỏe, bình an và nhiều cơ hội trong cuộc sống!",
+                "Mỗi ngày là một khởi đầu mới, hãy biến ngày hôm nay thành một ngày tuyệt vời!",
+                "Chúc bạn tìm thấy niềm vui trong những điều nhỏ bé nhất xung quanh mình!",
+                "Hạnh phúc luôn ở trong tầm tay bạn, chỉ cần bạn sẵn sàng đón nhận nó!",
+                "Chúc bạn luôn được yêu thương và cảm nhận trọn vẹn sự ấm áp từ những người xung quanh!",
+                "Hãy sống hết mình với đam mê và niềm tin rằng bạn có thể làm được mọi thứ!",
+                "Chúc bạn luôn cảm thấy tự hào về chính mình và không ngừng cố gắng vì tương lai!",
+                "Hãy để ánh sáng tích cực lan tỏa từ bạn, giúp cuộc sống này thêm tươi đẹp!",
+                "Chúc bạn luôn kiên trì với ước mơ của mình và đón nhận mọi điều may mắn!",
+                "Một ngày mới đang chờ đón bạn, hãy mở lòng để cảm nhận thật nhiều yêu thương và bình an!"
             ];
             const randomIndex = Math.floor(Math.random() * wishes.length);
             document.getElementById("wish").innerText = wishes[randomIndex];
