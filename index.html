@@ -28,9 +28,16 @@
             color: #ff6347; /* Màu đỏ cà chua */
             text-shadow: 1px 1px 2px #000059;
             position: absolute;
-            bottom: 20px; /* Điều chỉnh khoảng cách từ dưới lên */
+            bottom: 120px; /* Điều chỉnh khoảng cách từ dưới lên */
             width: 100%;
             font-family: 'Roboto', sans-serif;
+        }
+        #sunflowerMessage {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #ffff00; /* Màu vàng */
+            text-shadow: 1px 1px 2px #000059;
+            margin-top: 20px;
         }
         .fyt {
             font-size: 2em;
@@ -56,13 +63,6 @@
         }
         button:hover {
             background-color: #ff4500; /* Màu cam đậm */
-        }
-        .quote {
-            font-size: 1.5em;
-            font-style: italic;
-            color: #ffff00; /* Màu vàng */
-            text-shadow: 1px 1px 2px #000059;
-            margin-bottom: 20px;
         }
     </style>
     <script>
@@ -116,7 +116,10 @@
             
             const allMessages = sunflowerMessages.concat(wishes);
             const randomIndex = Math.floor(Math.random() * allMessages.length);
-            document.getElementById("wish").innerText = allMessages[randomIndex];
+            
+            // Lấy thông điệp từ hai mảng và hiển thị chúng
+            document.getElementById("wish").innerText = wishes[randomIndex];
+            document.getElementById("sunflowerMessage").innerText = sunflowerMessages[randomIndex];
         }
 
         function randomBackground() {
@@ -144,7 +147,8 @@
 </head>
 <body>
     <h1>Kỉ niệm FYT 25 năm</h1>
-    <p id="wish"></p>
+    <p id="wish"></p> <!-- Lời chúc ngẫu nhiên -->
+    <p id="sunflowerMessage"></p> <!-- Thông điệp hoa hướng dương -->
     <button onclick="randomWish()">Nhận lời chúc khác</button>
 </body>
 </html>
