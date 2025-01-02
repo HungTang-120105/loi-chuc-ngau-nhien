@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 let winners = []; // Danh sách người trúng thưởng
-const maxWinners = 25; // Giới hạn số người trúng thưởng
+const maxWinners = 20; // Giới hạn số người trúng thưởng
 
 // Cấu hình Body Parser
 app.use(bodyParser.json());
@@ -18,7 +18,7 @@ app.post('/join-blind-box', (req, res) => {
         return res.status(400).json({ message: "Tên người dùng không hợp lệ!" });
     }
 
-    // Kiểm tra nếu số người trúng thưởng đã đạt 25
+    // Kiểm tra nếu số người trúng thưởng đã đạt 20
     if (winners.length >= maxWinners) {
         return res.json({
             message: "Đã đạt số lượng người trúng thưởng tối đa!",
