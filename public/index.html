@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỉ niệm FYT 25 năm</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            color: rgb(5, 3, 3);
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 3em;
+            color: #ff4500;
+            text-shadow: 2px 2px 4px #ffffff;
+            font-family: 'Lobster', cursive;
+        }
+        #wish {
+            font-size: 2em;
+            color: #ff6347;
+            text-shadow: 1px 1px 2px #000059;
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+        }
+        #sunflowerMessage {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #ffff00;
+            text-shadow: 1px 1px 2px #000059;
+            bottom: 40px;
+        }
+        #result {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ff6347;
+            text-shadow: 1px 1px 2px #000059;
+            bottom: 20px;
+        }
+        .button-container {
+            position: absolute;
+            bottom: 120px;
+            width: 100%;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            width: 250px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #winnerList {
+            font-size: 1.5em;
+            color: #ff6347;
+            margin-top: 30px;
+        }
+        #winnerCount {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff6347;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function blindBox() {
+            const username = document.getElementById("username").value.trim();
+
+            if (username === "") {
+                alert("Vui lòng nhập tên của bạn!");
+                return;
+            }
+
+            fetch('/join-blind-box', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: username })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hiển thị kết quả
+                document.getElementById("result").innerText = data.message;
+                updateWinnerList(data.winners);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function updateWinnerList(winners) {
+            const winnerListElement = document.getElementById("winnerList");
+            const winnerCountElement = document.getElementById("winnerCount");
+
+            winnerListElement.innerHTML = "Danh sách người trúng thưởng: " + winners.join(", ");
+            winnerCountElement.innerHTML = "Số người trúng thưởng: " + winners.length;
+        }
+
+        window.onload = function() {
+            // Chức năng khởi tạo khác
+        }
+    </script>
+</head>
+<body>
+    <h1>Kỉ niệm FYT 25 năm</h1>
+    
+    <label for="username" style="font-size: 1.2em; color: #ff6347;">Nhập tên của bạn:</label>
+    <input type="text" id="username" placeholder="Tên của bạn...">
+    
+    <p id="wish"></p>
+    <p id="sunflowerMessage"></p>
+    <p id="result"></p> <!-- Thông báo kết quả trúng thưởng -->
+    
+    <div class="button-container">
+        <button onclick="blindBox()">Mở Blind Box</button>
+    </div>
+
+    <div id="winnerList"></div> <!-- Danh sách người trúng thưởng -->
+    <div id="winnerCount"></div> <!-- Số lượng người trúng thưởng -->
+</body>
+</html>
