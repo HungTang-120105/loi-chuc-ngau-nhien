@@ -28,9 +28,16 @@
             color: #ff6347; /* Màu đỏ cà chua */
             text-shadow: 1px 1px 2px #000059;
             position: absolute;
-            bottom: 100px; /* Điều chỉnh khoảng cách từ dưới lên */
+            bottom: 20px; /* Điều chỉnh khoảng cách từ dưới lên */
             width: 100%;
             font-family: 'Roboto', sans-serif;
+        }
+        #sunflowerMessage {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #ffff00; /* Màu vàng */
+            text-shadow: 1px 1px 2px #000059;
+            margin-top: 30px;
         }
         .fyt {
             font-size: 2em;
@@ -70,17 +77,7 @@
                 "Bạn là một đóa hoa hướng dương, luôn lạc quan và tỏa sáng trong mọi tình huống!",
                 "Mỗi ngày bạn như một đóa hoa hướng dương, nở rộ trong tình yêu thương và sự tươi mới!",
                 "Giống như hoa hướng dương, bạn luôn mang lại niềm vui và sự sống động cho mọi không gian!",
-                "Bạn là một đóa hoa hướng dương, tỏa sáng và luôn tìm kiếm những điều tốt đẹp phía trước!",
-                "Bạn là một đóa hoa hướng dương, luôn mạnh mẽ và kiên cường dù trong khó khăn!",
-                "Giống như hoa hướng dương, bạn luôn tìm thấy ánh sáng trong những thời khắc tối tăm nhất!",
-                "Bạn là một đóa hoa hướng dương, luôn sống động và truyền cảm hứng cho những người xung quanh!",
-                "Mỗi bước đi của bạn đều giống như những cánh hoa hướng dương vươn ra ánh mặt trời!",
-                "Bạn là một đóa hoa hướng dương, luôn mang lại sự ấm áp và yêu thương cho những người xung quanh!",
-                "Giống như hoa hướng dương, bạn luôn biết cách xoay mình để đón nhận những cơ hội mới!",
-                "Bạn là một đóa hoa hướng dương, luôn hướng về phía trước với niềm tin vững chắc vào tương lai!",
-                "Bạn giống như hoa hướng dương, luôn tìm thấy lý do để cười và mang lại hạnh phúc cho mọi người!",
-                "Bạn là một đóa hoa hướng dương, luôn nở rộ và lan tỏa năng lượng tích cực đến mọi nơi!",
-                "Giống như hoa hướng dương, bạn luôn mang lại hy vọng và sức sống cho mọi người xung quanh!"
+                "Bạn là một đóa hoa hướng dương, tỏa sáng và luôn tìm kiếm những điều tốt đẹp phía trước!"
             ];
 
             const wishes = [
@@ -93,22 +90,15 @@
                 "Chúc bạn luôn giữ vững nụ cười trên môi và niềm tin trong trái tim!",
                 "Mỗi bước đi của bạn hôm nay sẽ đưa bạn đến gần hơn với ước mơ của mình!",
                 "Chúc bạn luôn mạnh mẽ vượt qua mọi thử thách và chạm đến thành công lớn!",
-                "Hãy tận hưởng từng giây phút hiện tại và biến nó thành kỷ niệm đáng nhớ!",
-                "Chúc bạn luôn dồi dào sức khỏe, bình an và nhiều cơ hội trong cuộc sống!",
-                "Mỗi ngày là một khởi đầu mới, hãy biến ngày hôm nay thành một ngày tuyệt vời!",
-                "Chúc bạn tìm thấy niềm vui trong những điều nhỏ bé nhất xung quanh mình!",
-                "Hạnh phúc luôn ở trong tầm tay bạn, chỉ cần bạn sẵn sàng đón nhận nó!",
-                "Chúc bạn luôn được yêu thương và cảm nhận trọn vẹn sự ấm áp từ những người xung quanh!",
-                "Hãy sống hết mình với đam mê và niềm tin rằng bạn có thể làm được mọi thứ!",
-                "Chúc bạn luôn cảm thấy tự hào về chính mình và không ngừng cố gắng vì tương lai!",
-                "Hãy để ánh sáng tích cực lan tỏa từ bạn, giúp cuộc sống này thêm tươi đẹp!",
-                "Chúc bạn luôn kiên trì với ước mơ của mình và đón nhận mọi điều may mắn!"
+                "Hãy tận hưởng từng giây phút hiện tại và biến nó thành kỷ niệm đáng nhớ!"
             ];
 
-            const randomIndex = Math.floor(Math.random() * wishes.length);
-            console.log("Random Index:", randomIndex);
-            console.log("Selected Wish:", wishes[randomIndex]);
-            document.getElementById("wish").innerText = wishes[randomIndex];
+            // Chọn ngẫu nhiên một lời chúc và một thông điệp hoa hướng dương
+            const randomWishIndex = Math.floor(Math.random() * wishes.length);
+            const randomSunflowerIndex = Math.floor(Math.random() * sunflowerMessages.length);
+
+            document.getElementById("wish").innerText = wishes[randomWishIndex];
+            document.getElementById("sunflowerMessage").innerText = sunflowerMessages[randomSunflowerIndex];
         }
 
         function randomBackground() {
@@ -125,8 +115,6 @@
                 'anh-hoa-huong-duong-10.jpg'
             ];
             const randomIndex = Math.floor(Math.random() * backgrounds.length);
-            console.log("Random Background Index:", randomIndex);
-            console.log("Selected Background:", backgrounds[randomIndex]);
             document.body.style.backgroundImage = `url('${backgrounds[randomIndex]}')`;
         }
 
@@ -138,8 +126,8 @@
 </head>
 <body>
     <h1>Kỉ niệm FYT 25 năm</h1>
-    <p id="wish"></p>
+    <p id="wish"></p> <!-- Lời chúc ngẫu nhiên -->
+    <p id="sunflowerMessage"></p> <!-- Thông điệp hoa hướng dương -->
     <button onclick="randomWish()">Nhận lời chúc khác</button>
-    <div class="fyt">FYT</div>
 </body>
 </html>
