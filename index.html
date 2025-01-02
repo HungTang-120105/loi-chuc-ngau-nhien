@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lời chúc ngẫu nhiên</title>
+    <title>Kỉ niệm FYT 25 năm</title>
     <style>
         body {
             background-image: url('anh-hoa-huong-duong-5.jpg'); /* Đảm bảo rằng đường dẫn này là chính xác */
@@ -11,12 +11,18 @@
             background-repeat: no-repeat;
             text-align: center;
             color: rgb(5, 3, 3);
+            position: relative;
+            min-height: 100vh;
+            margin: 0;
         }
         .fyt {
             font-size: 2em;
             font-weight: bold;
-            margin-top: 50px; /* Điều chỉnh khoảng cách từ trên xuống */
             color: black; /* Đặt màu chữ thành màu đen */
+            position: absolute;
+            bottom: 20px; /* Điều chỉnh khoảng cách từ dưới lên */
+            width: 100%;
+            text-align: center;
         }
     </style>
     <script>
@@ -34,7 +40,7 @@
     </script>
 </head>
 <body onload="randomWish()">
-    <h1>Lời chúc ngẫu nhiên dành cho bạn!</h1>
+    <h1>Kỉ niệm FYT 25 năm</h1>
     <p id="wish"></p>
     <button onclick="randomWish()">Nhận lời chúc khác</button>
     <div class="fyt">FYT</div>
