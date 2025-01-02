@@ -28,16 +28,9 @@
             color: #ff6347; /* Màu đỏ cà chua */
             text-shadow: 1px 1px 2px #000059;
             position: absolute;
-            bottom: 120px; /* Điều chỉnh khoảng cách từ dưới lên */
+            bottom: 100px; /* Điều chỉnh khoảng cách từ dưới lên */
             width: 100%;
             font-family: 'Roboto', sans-serif;
-        }
-        #sunflowerMessage {
-            font-size: 1.5em;
-            font-style: italic;
-            color: #ffff00; /* Màu vàng */
-            text-shadow: 1px 1px 2px #000059;
-            margin-top: 20px;
         }
         .fyt {
             font-size: 2em;
@@ -109,17 +102,13 @@
                 "Hãy sống hết mình với đam mê và niềm tin rằng bạn có thể làm được mọi thứ!",
                 "Chúc bạn luôn cảm thấy tự hào về chính mình và không ngừng cố gắng vì tương lai!",
                 "Hãy để ánh sáng tích cực lan tỏa từ bạn, giúp cuộc sống này thêm tươi đẹp!",
-                "Chúc bạn luôn kiên trì với ước mơ của mình và đón nhận mọi điều may mắn!",
-                "Một ngày mới đang chờ đón bạn, hãy mở lòng để cảm nhận thật nhiều yêu thương và bình an!",
-                "Hãy luôn giữ trái tim đầy hy vọng và tinh thần lạc quan!"
+                "Chúc bạn luôn kiên trì với ước mơ của mình và đón nhận mọi điều may mắn!"
             ];
-            
-            const allMessages = sunflowerMessages.concat(wishes);
-            const randomIndex = Math.floor(Math.random() * allMessages.length);
-            
-            // Lấy thông điệp từ hai mảng và hiển thị chúng
+
+            const randomIndex = Math.floor(Math.random() * wishes.length);
+            console.log("Random Index:", randomIndex);
+            console.log("Selected Wish:", wishes[randomIndex]);
             document.getElementById("wish").innerText = wishes[randomIndex];
-            document.getElementById("sunflowerMessage").innerText = sunflowerMessages[randomIndex];
         }
 
         function randomBackground() {
@@ -136,6 +125,8 @@
                 'anh-hoa-huong-duong-10.jpg'
             ];
             const randomIndex = Math.floor(Math.random() * backgrounds.length);
+            console.log("Random Background Index:", randomIndex);
+            console.log("Selected Background:", backgrounds[randomIndex]);
             document.body.style.backgroundImage = `url('${backgrounds[randomIndex]}')`;
         }
 
@@ -147,8 +138,8 @@
 </head>
 <body>
     <h1>Kỉ niệm FYT 25 năm</h1>
-    <p id="wish"></p> <!-- Lời chúc ngẫu nhiên -->
-    <p id="sunflowerMessage"></p> <!-- Thông điệp hoa hướng dương -->
+    <p id="wish"></p>
     <button onclick="randomWish()">Nhận lời chúc khác</button>
+    <div class="fyt">FYT</div>
 </body>
 </html>
